@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Doctor;
+use App\Patient;
 use Illuminate\Http\Request;
-use App\Http\Resources\DoctorCollection;
-use App\Http\Resources\Doctor as DoctorResource;
 
-class DoctorController extends Controller
+class PatientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        
-        return DoctorResource::collection(Doctor::all());
+        //
     }
 
     /**
@@ -44,26 +41,21 @@ class DoctorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Doctor  $doctor
+     * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function show(Doctor $doctor)
+    public function show(Patient $patient)
     {
-
-        $count =$doctor->counter;
-        $count++;
-        $doctor->counter=$count;
-        $doctor->save();
-        return new DoctorResource($doctor);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Doctor  $doctor
+     * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function edit(Doctor $doctor)
+    public function edit(Patient $patient)
     {
         //
     }
@@ -72,10 +64,10 @@ class DoctorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Doctor  $doctor
+     * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Doctor $doctor)
+    public function update(Request $request, Patient $patient)
     {
         //
     }
@@ -83,10 +75,10 @@ class DoctorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Doctor  $doctor
+     * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor)
+    public function destroy(Patient $patient)
     {
         //
     }

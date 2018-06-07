@@ -21,6 +21,7 @@ class Doctor extends JsonResource
             'fees' => $this->fees,
             'city' => $this->city,
             'counter' => $this->counter,
+            'rating' =>$this->ratings->count()>0? round($this->ratings->sum('stars')/$this->ratings->count('star')):'no rate yet',
             'created_at' =>(string) $this->created_at,
             'updated_at' => (string)$this->updated_at
         ];

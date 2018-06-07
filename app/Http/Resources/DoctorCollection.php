@@ -14,6 +14,16 @@ class DoctorCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'specialist' => $this->specialist,
+            'fees' => $this->fees,
+            'city' => $this->city,
+            'counter' => $this->counter,
+            'rating' =>$this->ratings->stars,
+            'created_at' =>(string) $this->created_at,
+            'updated_at' => (string)$this->updated_at
+        ];
     }
 }
