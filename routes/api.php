@@ -17,8 +17,15 @@ use Illuminate\Http\Request;
     return $request->user();
 });*/
 
+// Doctor Route
 Route::prefix('doctor')->group(function () {
     Route::get('/all',"DoctorController@index" );
     Route::get('/{doctor}',"DoctorController@show" );
+});
+
+// Patient Route
+// Doctor Route
+Route::prefix('patient')->group(function () {
+    Route::post('/rate',"PatientController@store_rate" );
 });
 

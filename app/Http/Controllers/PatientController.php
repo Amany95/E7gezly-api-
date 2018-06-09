@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Patient;
+use App\Doctor;
+use App\Rating;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -37,6 +39,41 @@ class PatientController extends Controller
     {
         //
     }
+
+    public function store_rate(Request $request)
+    {
+        $result=Rating::where('doctor_id', '=', $request->doctor_id)->
+                        where('p_id', '=', $request->p_id)->value('rate_id');
+        $rate=Rating::find($result);                
+
+        if(!$rate)
+        {             
+            $rate = new Rating();
+            $rate->doctor_id= $request->doctor_id;
+            $rate->p_id= $request->p_id;
+            $rate->stars= $request->stars;
+
+            $rate->save();
+        }
+        else
+        {
+            $getid=Rating::where('doctor_id', '=', $request->doctor_id)->
+                        where('p_id', '=', $request->p_id)->value('rate_id');
+
+            $rate=Rating::find($getid);
+            $rate->doctor_id= $request->doctor_id;
+            $rate->p_id= $request->p_id;
+            $rate->stars= $request->stars;
+
+            $rate->save();
+
+        }
+
+        return Response('done',200);
+
+        
+    }
+
 
     /**
      * Display the specified resource.
