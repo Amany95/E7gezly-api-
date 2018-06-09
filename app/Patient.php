@@ -8,13 +8,13 @@ use App\Rating;
 class Patient extends Model
 {
 	protected $table = 'patients';
-	protected $primaryKey = 'patient_id';
+	protected $primaryKey = 'id';
    /* public function doctors()
     {
     	return $this->belongsToMany(Doctor::class)->withPivot('stars')->withTimestamps();
     }*/
     public function bookings()
     {
-        return $this->hasMany('App\booking');
+        return $this->hasMany('App\Booking');
     }
 }

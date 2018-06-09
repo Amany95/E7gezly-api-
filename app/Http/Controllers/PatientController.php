@@ -7,6 +7,8 @@ use App\Doctor;
 use App\Rating;
 use App\Booking;
 use Illuminate\Http\Request;
+use App\Http\Resources\HistorypCollection;
+use App\Http\Resources\HistorypResource;
 
 class PatientController extends Controller
 {
@@ -15,11 +17,10 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexofhistory(Patient $patient)
     {
-        //
+        return HistorypResource::collection($patient->bookings);
     }
-
     /**
      * Show the form for creating a new resource.
      *

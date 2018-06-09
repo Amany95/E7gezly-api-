@@ -6,6 +6,8 @@ use App\Doctor;
 use Illuminate\Http\Request;
 use App\Http\Resources\DoctorCollection;
 use App\Http\Resources\Doctor as DoctorResource;
+use App\Http\Resources\HistorydCollection;
+use App\Http\Resources\HistorydResource;
 
 class DoctorController extends Controller
 {
@@ -20,6 +22,11 @@ class DoctorController extends Controller
         return DoctorResource::collection(Doctor::all());
     }
 
+    public function indexofhistory(Doctor $doctor)
+    {
+        
+        return HistorydResource::collection($doctor->bookings);
+    }
     /**
      * Show the form for creating a new resource.
      *

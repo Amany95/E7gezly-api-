@@ -21,14 +21,18 @@ use Illuminate\Http\Request;
 Route::prefix('doctor')->group(function () {
     Route::get('/all',"DoctorController@index" );
     Route::get('/{doctor}',"DoctorController@show" );
+    Route::get('/{doctor}',"DoctorController@indexofhistory" );
+
 });
 
 // Patient Route
-// Doctor Route
 Route::prefix('patient')->group(function () {
     Route::post('/rate',"PatientController@store_rate" );
     Route::post('/book',"PatientController@store_book" );
     Route::post('/update',"PatientController@update" );
+    Route::get('/{patient}',"PatientController@indexofhistory" );
+
+    
 
 });
 

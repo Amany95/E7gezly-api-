@@ -16,6 +16,6 @@ class Booking extends Model
 
     public function patients()
     {
-        return $this->belongsTo('App\patient');
+        return $this->belongsTo('App\Patient');
     }
 }

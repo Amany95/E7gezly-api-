@@ -20,7 +20,7 @@ class Doctor extends Model
 
     public function bookings()
     {
-        return $this->hasMany('App\booking');
+        return $this->hasMany('App\Booking');
     }
 
      
