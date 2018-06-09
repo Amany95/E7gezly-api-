@@ -27,5 +27,8 @@ Route::prefix('doctor')->group(function () {
 // Doctor Route
 Route::prefix('patient')->group(function () {
     Route::post('/rate',"PatientController@store_rate" );
+    Route::post('/book',"PatientController@store_book" );
+    Route::post('/update',"PatientController@update" );
+
 });
 

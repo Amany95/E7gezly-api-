@@ -18,5 +18,10 @@ class Doctor extends Model
         return $this->hasMany('App\Rating');
     }
 
+    public function bookings()
+    {
+        return $this->hasMany('App\booking');
+    }
+
      
 }
