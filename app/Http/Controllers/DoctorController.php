@@ -43,9 +43,25 @@ class DoctorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function search(Request $request)
     {
-        //
+        $city = $request->get('city');
+        $fees = $request->get('fees');
+        $name = $request->get('name');
+
+
+
+
+        $doctors = Doctor::where('city', 'like', "%{$city}%")
+                         ->orWhere('fees', 'like', "%{$fees}%")
+                         ->orWhere('name', 'like', "%{$name}%")
+
+                         ->get();
+
+        return DoctorResource::collection($doctors);
+
+
+  
     }
 
     /**

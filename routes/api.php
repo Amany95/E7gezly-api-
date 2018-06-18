@@ -22,6 +22,8 @@ Route::prefix('doctor')->group(function () {
     Route::get('/all',"DoctorController@index" );
     Route::get('/{doctor}',"DoctorController@show" );
     Route::get('/{doctor}',"DoctorController@indexofhistory" );
+    Route::post('/search',"DoctorController@search" );
+
 
 });
 
@@ -36,3 +38,9 @@ Route::prefix('patient')->group(function () {
 
 });
 
+Route::post('user/register',"APIRegisterController@register");
+Route::post('user/login',"APILoginController@login");
+
+Route::middleware('jwt.auth')->get('/users', function (Request $request) {
+    return auth()->user();
+});
